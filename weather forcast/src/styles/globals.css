@@ -1,0 +1,405 @@
+
+body {
+
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333333;
+  height: 830px;
+
+}
+
+.container {
+
+  max-width: 660px; 
+  width: 100%;
+  margin: 0 auto; 
+  padding: 20px;
+  height: 830px;
+  box-sizing: border-box;
+  background-image: url('/icons/background1.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-color: #4d57ab;
+
+}
+
+/* Arama ve 5 Günlük Tahmin Bölümleri */
+.forecast-layout {
+
+  display: flex;
+  justify-content: space-between; /* Arama butonu ve tahmin çerçevesini yatayda dağıtır */
+  gap: 0px;
+  align-items: flex-start; /* Üstte hizalama */
+
+}
+
+.search-and-info {
+
+  flex-direction: column; /* Arama ve bilgi bölümlerini dikeyde hizalar */
+  gap: 0px; /* Arama ve current-weather-info arasına boşluk ekler */
+  width: 250px;
+
+}
+
+/* Arama Konteyneri */
+.search-container {
+
+  align-items: flex-start; /* Öğeleri sola hizalar */
+  border-radius: 8%; /* Köşe yuvarlama */
+  width: 240px; /* Arama çubuğunu genişlet */
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0);
+  color: #FFFFFF; /* Beyaz yazı rengi */
+  display: flex; 
+  gap: 5px; /* Input ve Button arasındaki boşluk */
+
+}
+
+input::placeholder {
+
+  color: #ffffff; 
+  opacity: 1; /* Opaklığı tam olarak ayarlar */
+  font-family: 'Arial', sans-serif; /* Yazı stili */
+  font-size: 15px; /* Yazı boyutu */
+  font-weight: normal; /* Yazı kalınlığı */
+  font-style: normal; /* Yazı stili: italik */
+
+}
+.search-container input {
+
+  padding: 8px; /* İç boşluk */
+  padding-right: 0px;
+  font-size: 15px; /* Yazı boyutu */
+  border-radius: 8px; /* Köşe yuvarlama */
+  width: 160px; /* Genişliği 150px olarak ayarla */ 
+  color: #FFFFFF; /* Beyaz yazı rengi */
+  background-color: rgba(255, 255, 255, 0); /* Şeffaf arka plan */
+   border: 1px solid rgba(255, 255, 255, 0.5); /* Şeffaf kenar çizgisi */
+  box-shadow: none; /* Gölgeyi kaldırır */
+  outline: none; /* Odaklanma kenarlığını kaldırır */
+
+}
+
+.search-container button {
+
+  padding: 8px 8px; /* İç boşluk */
+  padding-left: 8px;
+  width: 50px;
+  font-size: 15px; /* Yazı boyutu */
+  border-radius: 8px; /* Köşe yuvarlama */
+  background-color: rgba(255, 255, 255, 0); /* Tamamen şeffaf arka plan */
+  color: #FFFFFF; /* Beyaz yazı rengi */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Şeffaf kenar çizgisi */
+  cursor: pointer; /* İmleç değişimi */
+  box-shadow: none; /* Gölgeyi kaldırır */
+  font-family: 'Arial', sans-serif; /* Yazı stili */
+  font-style: normal; 
+  font-weight: normal;
+  transition: background-color 0.3s ease; /* Arka plan rengi geçişi */
+
+  }
+
+/* Anlık Hava Durumu Bilgisi Konteyneri */
+.current-weather-info {
+
+  width: 220px; /* Genişliği tam konteyner kadar yapar */
+  height: 130px;
+  display: flex; /* Öğeleri yatayda hizalar */
+  margin-bottom: 10px;
+  flex-direction: column; /* Öğeleri dikeyde hizalar */
+  align-items: center; /* Öğeleri dikeyde ortalar */
+  background-color: rgba(255, 255, 255, 0); /* Şeffaf arka plan */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Şeffaf kenar çizgisi */
+  border-radius: 8px; /* Köşeleri yuvarlar */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge ekler */
+
+}
+.current-weather-info img.location-icon {
+
+  width: 24px; /* İkonun genişliği */
+  height: 24px; /* İkonun yüksekliği */
+  margin-right: 2px; /* İkon ile metin arasındaki boşluk */
+  vertical-align: middle; /* İkonun metinle hizalanmasını sağlar */
+
+}
+
+.current-weather-info h1 {
+
+  font-weight: 700; /* Orta kalınlıkta yazı */
+  font-size: 18px; /* Başlık boyutu */
+  margin: 0; /* Alt boşluğu sıfırla */
+  color: #FFFFFF; /* Beyaz yazı rengi */
+
+}
+
+.current-temperature {
+
+  font-size: 27px; /* Daha büyük yazı boyutu */
+  font-weight:400; /* Kalın yazı */
+  color: #FFFFFF; /* Beyaz yazı rengi */
+  margin-top: 10px;
+  margin-bottom: 0px;
+
+}
+.current-weather-info .current-info-wrapper {
+
+  display: flex; /* İkon ve metni yatayda hizalar */
+  align-items: center; /* Dikeyde ortalar */
+
+}
+
+.current-weather-icon {
+
+  width: 24px; /* İkon genişliği */
+  height: 24px; /* İkon yüksekliği */
+
+}
+ .current-text {
+
+  align-items: center; /* Ortalar */
+  font-size: 18px; /* Yazı boyutu */
+  color: #ffffff; /* Beyaz yazı rengi */
+  display: inline; /* Metni ikonun yanına hizalar */
+  align-self: center; /* Metni ortalar */
+  margin-left: 10px; /* İkon ile metin arasındaki boşluk */
+
+}
+/* 5 Günlük Tahmin Çerçevesi */
+.daily-forecast-wrapper {
+
+  display: flex;
+  flex-direction: row;
+  width: 380px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0); 
+  border: 1px solid rgba(255, 255, 255, 0.5); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  margin-top: 10px;
+  gap: 15px; /* Öğeler arasına boşluk ekler */
+  overflow-x: auto; /* Yalnızca yatay kaydırma çubuğu ekler */
+  scrollbar-width: thin; /* Firefox için ince kaydırma çubuğu */
+  scrollbar-color: rgba(113, 102, 102, 0.3) rgba(241, 241, 241, 0.3);; 
+
+}
+.daily-item {
+
+  display: flex;
+  border: 2px solid rgb(255, 255, 255); 
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); 
+  background-color: rgba(255, 255, 255, 0); 
+  border: 1px solid rgba(255, 255, 255, 0.5); 
+  padding: 2px; 
+  gap: 2px; 
+  margin-bottom: 5px; 
+  align-items: center;   
+  flex-direction: column; /* İçindeki öğeleri dikeyde sıralar */
+}
+
+.days{
+
+  margin: 2px 0; 
+  font-size: 16px; 
+  color: #ffffff; 
+
+}
+.date {
+
+  margin: 2px 0; 
+  font-size: 14px; 
+  color: #ffffff;
+
+}
+
+.daily-item img.weather-icon {
+
+  width: 30px; 
+  height: 30px;
+  margin-top: 3px; /* İkon ile çerçeve arasındaki boşluk */
+  padding-bottom: 5px;
+
+}
+
+.weatherDescription{
+
+  margin: 2px 0; /* Tarih bilgisinin üst ve alt kenar boşluklarını azaltır */
+  font-size: 10px; 
+  color: #6897c6;
+  text-align: center; /* Metni yatay olarak ortalar */
+
+}
+
+.temperature {
+
+  margin: 2px 0; /* Sıcaklık bilgisinin üst ve alt kenar boşluklarını azaltır */
+  font-size: 14px; 
+  color: #6897c6; 
+  display: flex;
+  gap: 5px; /* Sıcaklıklar arasında boşluk */
+
+}
+
+.forecast-info-layout {
+
+  display: flex;
+  height: 571px;
+  justify-content: space-between; 
+  align-items: flex-start; 
+  gap: 20px; 
+
+}
+
+/* 24 Saatlik Tahmin ve Diğer Bilgiler */
+.hourly-forecast-container {
+  
+  background-color: rgba(255, 255, 255, 0); 
+  border: 1px solid rgba(255, 255, 255, 0.5); 
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 0px;
+  
+  color: #ffffff; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 220px;
+  height: 550px;
+
+}
+
+.hourly-forecast-container h1 {   
+
+  font-size: 20px;      /* Today başlığının */
+  margin-bottom: 10px; 
+  color: #f6f2f29c; 
+
+}
+
+.hourly-item {    
+
+  display: flex;            
+  align-items: center;       /* 24 saatlik veriler için */
+  margin-bottom: 5px;   /* Saat, derece ve ikon öğelerinin arasındaki boşluk */
+  gap: 40px; /* Öğeler arasındaki boşluk */
+  color: #FFFFFF;
+
+}
+
+.hourly-item img.hourly-icon {
+  width: 30px;
+  height: 30px; 
+  margin-right: 8px; /* Metin ile ikon arasındaki boşluk */
+}
+
+.current-weather {
+  margin: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 10px;
+
+}           
+
+.current-weather h1 {
+  font-size: 24px; /*    anlık bilgiler ayarlar */
+  text-align: center; 
+  color: #78768cc9; 
+  font-weight: bold; 
+  margin-top: 10px;
+  margin-bottom: 28px; 
+}
+
+.current-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.info-item {
+  display: flex;
+  margin-bottom: 20px; /* Her bir info-item arasındaki boşluk */
+  flex-direction: column; /* Başlıkları ve ikonları dikey düzenle */
+  min-width: 130px; 
+  max-width: 30%; 
+  color: #ffffff; 
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  padding: 10px; 
+  background-color: rgba(51, 51, 51, 0); 
+}
+
+.info-item p {
+  color: #fffffff0; 
+  margin-top: 0px;
+  margin-bottom:  10px;
+}
+
+.info-content {
+  text-align: left; 
+}
+
+.icon-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.icon-info-wrapper p {
+  text-align: center;
+  margin-top: 0px;
+  margin: bottom 0px;
+}
+.info-content h1,
+.info-content h2,
+.info-content h3,
+.info-content h4,
+.info-content h5,
+.info-content h6 {
+  color: #ffffff; 
+  font-size: 18px; 
+  margin-top: 3px; /* Başlıklar arasındaki boşluk */
+  margin-bottom: 0px;
+  font-family: 'Arial', sans-serif; 
+  text-align: left; /* Başlıkları sola hizala */
+}
+.info-item img.yagis-icon,
+.info-item img.uv-icon,
+.info-item img.windsurfing-icon,
+.info-item img.visibility-icon,
+.info-item img.humidity-icon {
+  width: 40px; 
+  height: 40px; 
+  justify-content: center; 
+  margin-bottom: 10px; /* İkon ile metin arasındaki boşluk */
+}
+
+.sun-timing {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  margin-top: 10px; /* Üst başlıkla olan boşluk */
+}
+.sun-event {
+  display: flex;
+  align-items: center; 
+  margin-bottom: 15px; /* Satırlar arasına boşluk ekle */
+}
+.sun-event img {
+  margin-right: 20px; /* İkon ile saat arasındaki boşluk */
+
+}
+.sun-event p {
+  margin: 0;  
+}
+
+.info-item img.sunrise-icon,
+.info-item img.sunset-icon {
+  width: 40px; 
+  height: 40px; 
+  margin-right: 0px; /* Metin ile ikon arasındaki boşluk */
+}
+
+
